@@ -1,0 +1,37 @@
+Here are the questions and answers in Python:
+
+Question 1: Create an empty list called my_list
+Answer: my_list = []
+
+Question 2: Append the following elements to my_list: 10, 20, 30, 40
+Answer: 
+my_list.append(10)
+my_list.append(20)
+my_list.append(30)
+my_list.append(40)
+# my_list is now [10, 20, 30, 40]
+
+Question 3: Insert the value 15 at the second position in the list
+Answer: 
+my_list.insert(1, 15)
+# my_list is now [10, 15, 20, 30, 40]
+
+Question 4: Extend my_list with another list: [50, 60, 70]
+Answer: 
+my_list.extend([50, 60, 70])
+# my_list is now [10, 15, 20, 30, 40, 50, 60, 70]
+
+Question 5: Remove the last element from my_list
+Answer: 
+my_list.pop()
+# my_list is now [10, 15, 20, 30, 40, 50, 60]
+
+Question 6: Sort my_list in ascending order
+Answer: 
+my_list.sort()
+# my_list is still [10, 15, 20, 30, 40, 50, 60] as it was already in ascending order
+
+Question 7: Find and print the index of the value 30 in my_list
+Answer: 
+print(my_list.index(30))
+# This will print 3, as 30 is at index 3 (counting from 0)
