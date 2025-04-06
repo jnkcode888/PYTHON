@@ -1,0 +1,83 @@
+# Assignment 1: Design Your Own Class (Superhero theme with inheritance)
+class Superhero:
+    def __init__(self, name, power_level, city):
+        self._name = name          # Protected attribute (encapsulation)
+        self._power_level = power_level
+        self.city = city          # Public attribute
+        
+    def use_power(self):
+        return f"{self._name} uses their powers at {self._power_level}% strength!"
+    
+    def get_name(self):          # Getter method for encapsulation
+        return self._name
+    
+    def set_power_level(self, level):  # Setter method
+        if 0 <= level <= 100:
+            self._power_level = level
+            return True
+        return False
+
+class FlyingSuperhero(Superhero):  # Inheritance
+    def __init__(self, name, power_level, city, flight_speed):
+        super().__init__(name, power_level, city)
+        self.flight_speed = flight_speed
+    
+    def use_power(self):  # Method overriding (polymorphism)
+        return f"{self._name} flies at {self.flight_speed} mph!"
+    
+    def patrol(self):
+        return f"{self._name} is patrolling {self.city} from the skies!"
+
+# Assignment 2: Polymorphism Challenge (Vehicles)
+class Vehicle:
+    def __init__(self, name, speed):
+        self.name = name
+        self.speed = speed
+    
+    def move(self):  # Base method to be overridden
+        pass
+
+class Car(Vehicle):
+    def move(self):  # Polymorphic implementation
+        return f"{self.name} is driving at {self.speed} mph! 🚗"
+
+class Plane(Vehicle):
+    def move(self):  # Polymorphic implementation
+        return f"{self.name} is flying at {self.speed} mph! ✈️"
+
+class Boat(Vehicle):
+    def move(self):  # Polymorphic implementation
+        return f"{self.name} is sailing at {self.speed} knots! ⛵"
+
+# Demonstration
+def main():
+    print("=== Superhero Demo ===")
+    # Create superhero instances
+    hero1 = Superhero("Thunderbolt", 75, "Metropolis")
+    hero2 = FlyingSuperhero("Sky Captain", 90, "Cloud City", 500)
+    
+    # Test superhero methods
+    print(hero1.use_power())
+    print(hero2.use_power())  # Shows polymorphism
+    print(hero2.patrol())
+    print(f"Name via getter: {hero1.get_name()}")
+    
+    # Demonstrate encapsulation
+    hero1.set_power_level(85)
+    print(f"Updated power: {hero1.use_power()}")
+    
+    print("\n=== Vehicle Demo ===")
+    # Create vehicle instances
+    car = Car("Speedster", 120)
+    plane = Plane("Jetstream", 600)
+    boat = Boat("Wave Rider", 30)
+    
+    # Store in a list to demonstrate polymorphism
+    vehicles = [car, plane, boat]
+    
+    # Call move() on each - different outputs despite same method name
+    for vehicle in vehicles:
+        print(vehicle.move())
+
+if __name__ == "__main__":
+    main()
